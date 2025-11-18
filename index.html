@@ -56,7 +56,6 @@
         body.menu-open {
             overflow: hidden;
         }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
@@ -138,7 +137,7 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: var(--text-dark);
-            z-index: 1001;
+			z-index: 1001;
         }
 
         .mobile-menu-overlay {
@@ -196,7 +195,7 @@
             background: none;
             border: none;
             color: var(--white);
-            font-size: 2rem;
+			font-size: 2rem;
             cursor: pointer;
             padding: 0;
             line-height: 1;
@@ -222,7 +221,7 @@
             transition: all 0.3s ease;
         }
 
-        .mobile-menu-links a:hover,
+		.mobile-menu-links a:hover,
         .mobile-menu-links a:active {
             background: var(--accent);
             color: var(--primary-color);
@@ -251,7 +250,6 @@
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(93, 190, 188, 0.3);
         }
-
         /* Hero Section */
         .hero {
             margin-top: 80px;
@@ -1064,6 +1062,76 @@
             }
         }
 
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
+            background: #20BA5A;
+        }
+
+        .whatsapp-float svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--white);
+        }
+
+        /* Pulse animation for WhatsApp button */
+        @keyframes whatsapp-pulse {
+            0% {
+                box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1);
+            }
+            100% {
+                box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            }
+        }
+
+        .whatsapp-float {
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            animation: none;
+        }
+
+        /* Mobile adjustments for WhatsApp button */
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+
+            .whatsapp-float svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
         /* Responsive Design */
         @media (max-width: 968px) {
             .nav-links {
@@ -1074,10 +1142,9 @@
                 display: block;
             }
 
-            .logo {
+			.logo {	   
                 height: 50px;
             }
-
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -1233,7 +1300,6 @@
             <a href="form.html">Get Started</a>
         </div>
     </div>
-
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
@@ -1273,19 +1339,19 @@
             </div>
             <div class="services-grid">
                 <div class="service-card">
-					<!-- <div class="service-icon">🏋️</div> -->
-					<h3>In-Person Training</h3>
-					<p>One-on-one training designed for your goals, fitness level and schedule.</p>
-					<!-- <div class="service-price">From R500</div> -->
-					<ul class="service-features">
-						<li>45-60 Min 1:1 sessions</li>
-						<li>Custom workouts</li>
-						<li>Access to our coaching app</li>
-						<li>Goal setting / Monthly assessments</li>
-						<li>Accountability & WhatsApp support</li>
-						<li>Nutrition & Meal plan guidance</li>
-					</ul>
-					<a href="form.html" class="btn btn-primary">Get Started</a>
+                    <!-- <div class="service-icon">🏋️</div> -->
+                    <h3>In-Person Training</h3>
+                    <p>One-on-one training designed for your goals, fitness level and schedule.</p>
+                    <!-- <div class="service-price">From R500</div> -->
+                    <ul class="service-features">
+                        <li>45-60 Min 1:1 sessions</li>
+                        <li>Custom workouts</li>
+                        <li>Access to our coaching app</li>
+                        <li>Goal setting / Monthly assessments</li>
+                        <li>Accountability & WhatsApp support</li>
+                        <li>Nutrition & Meal plan guidance</li>
+                    </ul>
+                    <a href="form.html" class="btn btn-primary">Get Started</a>
                 </div>
 
                 <div class="service-card">
@@ -1801,7 +1867,6 @@
                 closeMobileMenu();
             }
         });
-
         // ====================================
         // CAROUSEL FUNCTIONALITY
         // ====================================
@@ -1881,5 +1946,16 @@
             }
         });
     </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/27725585013?text=Hi!%20I'm%20interested%20in%20SOAR%20Fitness%20training%20programs" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.051-13.487 13.487-13.487s13.487 6.051 13.487 13.487c0 7.435-6.051 13.487-13.487 13.487zM21.913 18.303c-0.372-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.186-0.837 0.186s-0.961 1.208-1.179 1.456c-0.217 0.248-0.434 0.279-0.806 0.093s-1.571-0.579-2.991-1.846c-1.107-0.987-1.854-2.206-2.071-2.578s-0.023-0.573 0.163-0.758c0.167-0.166 0.372-0.434 0.558-0.651s0.248-0.372 0.372-0.62c0.124-0.248 0.062-0.465-0.031-0.651s-0.837-2.010-1.147-2.754c-0.303-0.724-0.611-0.626-0.837-0.637-0.217-0.011-0.465-0.013-0.713-0.013s-0.651 0.093-0.992 0.465c-0.341 0.372-1.301 1.270-1.301 3.096s1.332 3.590 1.518 3.838c0.186 0.248 2.625 4.007 6.359 5.617 0.889 0.383 1.583 0.612 2.125 0.783 0.894 0.284 1.707 0.244 2.351 0.148 0.717-0.107 2.197-0.898 2.507-1.766s0.31-1.611 0.217-1.766c-0.093-0.155-0.341-0.248-0.713-0.434z" fill="currentColor"/>
+        </svg>
+    </a>
 </body>
 </html>
