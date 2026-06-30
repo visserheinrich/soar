@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en-ZA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book &amp; Join - SOAR Fitness</title>
+    <meta name="description" content="Sign up, view packages and book your sessions with SOAR Fitness online.">
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #5DBEBC;
+            --secondary-color: #4A9B99;
+            --dark-color: #2C3E50;
+            --light-bg: #F8FAFB;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --accent: #E8F6F6;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--light-bg);
+            overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 150px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .back-btn {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(93, 190, 188, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+            z-index: 1001;
+        }
+
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+        }
+
+        .mobile-menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100%;
+            background: var(--white);
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .mobile-menu.active {
+            right: 0;
+        }
+
+        .mobile-menu-header {
+            padding: 1.5rem;
+            background: var(--primary-color);
+            color: var(--white);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mobile-menu-header h3 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .mobile-menu-close {
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            line-height: 1;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-menu-links li {
+            border-bottom: 1px solid var(--accent);
+        }
+
+        .mobile-menu-links a {
+            display: block;
+            padding: 1.2rem 1.5rem;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-menu-links a:hover,
+        .mobile-menu-links a:active {
+            background: var(--accent);
+            color: var(--primary-color);
+            padding-left: 2rem;
+        }
+
+        /* Booking page */
+        .book-page {
+            margin-top: 100px;
+            padding: 3rem 2rem 5rem;
+            min-height: calc(100vh - 100px);
+        }
+
+        .book-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .book-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .book-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .book-header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            padding: 1.5rem 1.5rem 0;
+        }
+
+        .tab-btn {
+            background: var(--accent);
+            color: var(--secondary-color);
+            border: none;
+            padding: 0.85rem 1.75rem;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            background: #d3eeed;
+        }
+
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(93, 190, 188, 0.3);
+        }
+
+        .tab-content {
+            padding: 1.5rem 2rem 2.5rem;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+        }
+
+        /* Responsive iframe wrapper.
+           NOTE: no official Octiv embed/resize script yet, so the height is a
+           generous fixed value and the widget scrolls internally if it needs more.
+           When the official embed snippet is available, swap the iframe for it and
+           this fixed height can be replaced by their auto-resize handler. */
+        .widget-frame {
+            width: 100%;
+            min-height: 900px;
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .widget-frame iframe {
+            width: 100%;
+            min-height: 900px;
+            border: none;
+            display: block;
+        }
+
+        .widget-fallback {
+            text-align: center;
+            margin-top: 1.25rem;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .widget-fallback a {
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .widget-fallback a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) translateY(-5px);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.6);
+            background: #20BA5A;
+        }
+
+        .whatsapp-float svg {
+            width: 36px;
+            height: 36px;
+            fill: var(--white);
+        }
+
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 10px rgba(37, 211, 102, 0.1); }
+            100% { box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
+        }
+
+        .whatsapp-float {
+            animation: whatsapp-pulse 2s infinite;
+        }
+
+        .whatsapp-float:hover {
+            animation: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .book-header h1 {
+                font-size: 2rem;
+            }
+
+            .book-page {
+                padding: 2rem 1rem;
+            }
+
+            .tab-btn {
+                padding: 0.7rem 1.25rem;
+                font-size: 0.9rem;
+            }
+
+            .tab-content {
+                padding: 1.5rem 1rem 2rem;
+            }
+
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 56px;
+                height: 56px;
+                font-size: 28px;
+            }
+
+            .whatsapp-float svg {
+                width: 32px;
+                height: 32px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo {
+                height: 50px;
+            }
+
+            .book-header {
+                padding: 2rem 1rem;
+            }
+
+            .book-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html"><img src="logo.png" alt="SOAR Fitness" class="logo"></a>
+            <ul class="nav-links">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="index.html" class="back-btn">← Back to Home</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <h3>Menu</h3>
+            <button class="mobile-menu-close" id="mobileMenuClose">&times;</button>
+        </div>
+        <ul class="mobile-menu-links">
+            <li><a href="index.html#home" class="mobile-link">Home</a></li>
+            <li><a href="index.html#about" class="mobile-link">About</a></li>
+            <li><a href="index.html#services" class="mobile-link">Services</a></li>
+            <li><a href="index.html#testimonials" class="mobile-link">Testimonials</a></li>
+            <li><a href="index.html#contact" class="mobile-link">Contact</a></li>
+            <li><a href="index.html" class="mobile-link">← Back to Home</a></li>
+        </ul>
+    </div>
+
+    <!-- Booking Page -->
+    <div class="book-page">
+        <div class="book-container">
+            <div class="book-header">
+                <h1>Book &amp; Join</h1>
+                <p>Sign up, choose your package, and book your sessions — all online.</p>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs" role="tablist">
+                <button class="tab-btn active" data-tab="signup" role="tab" aria-selected="true" aria-controls="panel-signup">Sign Up</button>
+                <button class="tab-btn" data-tab="packages" role="tab" aria-selected="false" aria-controls="panel-packages">Packages</button>
+                <button class="tab-btn" data-tab="schedule" role="tab" aria-selected="false" aria-controls="panel-schedule">Schedule</button>
+            </div>
+
+            <div class="tab-content">
+                <!-- Sign Up -->
+                <div class="tab-panel active" id="panel-signup" role="tabpanel">
+                    <div class="widget-frame">
+                        <iframe
+                            title="SOAR Fitness - Sign Up"
+                            data-src="https://app.octivfitness.com/widget/sign-up?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548"
+                            allow="payment"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="widget-fallback">Having trouble? <a href="https://app.octivfitness.com/widget/sign-up?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548" target="_blank" rel="noopener">Open sign-up in a new tab ↗</a></p>
+                </div>
+
+                <!-- Packages -->
+                <div class="tab-panel" id="panel-packages" role="tabpanel">
+                    <div class="widget-frame">
+                        <iframe
+                            title="SOAR Fitness - Packages"
+                            data-src="https://app.octivfitness.com/widget/packages?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548"
+                            allow="payment"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="widget-fallback">Having trouble? <a href="https://app.octivfitness.com/widget/packages?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548" target="_blank" rel="noopener">Open packages in a new tab ↗</a></p>
+                </div>
+
+                <!-- Schedule -->
+                <div class="tab-panel" id="panel-schedule" role="tabpanel">
+                    <div class="widget-frame">
+                        <iframe
+                            title="SOAR Fitness - Schedule"
+                            data-src="https://app.octivfitness.com/widget/schedule?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548"
+                            allow="payment"
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <p class="widget-fallback">Having trouble? <a href="https://app.octivfitness.com/widget/schedule?publicToken=5a2eaefed50f565f9b4b431b986a58be3825d548" target="_blank" rel="noopener">Open schedule in a new tab ↗</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="year">2025</span> SOAR Fitness - Achieving New Heights | <a href="index.html">Return to Homepage</a></p>
+    </footer>
+
+    <script>
+        // Keep footer year current
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
+        // ====================================
+        // TABS + LAZY-LOADED WIDGETS
+        // Each Octiv iframe only loads when its tab is first opened (data-src -> src).
+        // ====================================
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        function loadWidget(panel) {
+            const iframe = panel.querySelector('iframe');
+            if (iframe && !iframe.src) {
+                iframe.src = iframe.dataset.src;
+            }
+        }
+
+        function activateTab(name) {
+            tabButtons.forEach(btn => {
+                const isActive = btn.dataset.tab === name;
+                btn.classList.toggle('active', isActive);
+                btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+            });
+            tabPanels.forEach(panel => {
+                const isActive = panel.id === 'panel-' + name;
+                panel.classList.toggle('active', isActive);
+                if (isActive) { loadWidget(panel); }
+            });
+        }
+
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => activateTab(btn.dataset.tab));
+        });
+
+        // Load the first (Sign Up) widget on page load.
+        loadWidget(document.getElementById('panel-signup'));
+
+        // Allow deep-linking to a tab, e.g. book.html#packages or book.html#schedule
+        const initial = window.location.hash.replace('#', '');
+        if (['signup', 'packages', 'schedule'].includes(initial)) {
+            activateTab(initial);
+        }
+
+        // Mobile menu toggle functionality
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.add('active');
+            mobileMenuOverlay.classList.add('active');
+            document.body.classList.add('menu-open');
+        });
+
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('active');
+            mobileMenuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
+
+        mobileMenuClose.addEventListener('click', closeMobileMenu);
+        mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+    </script>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/27725585013?text=Hi!%20I'm%20interested%20in%20SOAR%20Fitness%20training%20programs"
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 0c-8.837 0-16 7.163-16 16 0 2.825 0.737 5.607 2.137 8.048l-2.137 7.952 7.933-2.127c2.42 1.37 5.173 2.127 8.067 2.127 8.837 0 16-7.163 16-16s-7.163-16-16-16zM16 29.467c-2.482 0-4.908-0.646-7.07-1.87l-0.507-0.292-4.713 1.262 1.262-4.669-0.292-0.508c-1.207-2.100-1.847-4.507-1.847-6.924 0-7.435 6.051-13.487 13.487-13.487s13.487 6.051 13.487 13.487c0 7.435-6.051 13.487-13.487 13.487zM21.913 18.303c-0.372-0.186-2.197-1.083-2.537-1.208-0.341-0.124-0.589-0.186-0.837 0.186s-0.961 1.208-1.179 1.456c-0.217 0.248-0.434 0.279-0.806 0.093s-1.571-0.579-2.991-1.846c-1.107-0.987-1.854-2.206-2.071-2.578s-0.023-0.573 0.163-0.758c0.167-0.166 0.372-0.434 0.558-0.651s0.248-0.372 0.372-0.62c0.124-0.248 0.062-0.465-0.031-0.651s-0.837-2.010-1.147-2.754c-0.303-0.724-0.611-0.626-0.837-0.637-0.217-0.011-0.465-0.013-0.713-0.013s-0.651 0.093-0.992 0.465c-0.341 0.372-1.301 1.270-1.301 3.096s1.332 3.590 1.518 3.838c0.186 0.248 2.625 4.007 6.359 5.617 0.889 0.383 1.583 0.612 2.125 0.783 0.894 0.284 1.707 0.244 2.351 0.148 0.717-0.107 2.197-0.898 2.507-1.766s0.31-1.611 0.217-1.766c-0.093-0.155-0.341-0.248-0.713-0.434z" fill="currentColor"/>
+        </svg>
+    </a>
+</body>
+</html>

@@ -1,9 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOAR Fitness - Achieving New Heights</title>
+    <title>SOAR Fitness | Personal Trainer in Cape Town</title>
+    <meta name="description" content="SOAR Fitness offers personalised in-person and online personal training in Brackenfell, Cape Town. Custom workouts, nutrition guidance and real accountability to help you reach your goals.">
+    <link rel="canonical" href="https://www.soarfitness.co.za/">
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <!-- Open Graph / social sharing previews (WhatsApp, Facebook, Instagram) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="SOAR Fitness">
+    <meta property="og:title" content="SOAR Fitness | Personal Trainer in Cape Town">
+    <meta property="og:description" content="Personalised in-person and online fitness coaching in Brackenfell, Cape Town. Custom workouts, nutrition guidance and real accountability.">
+    <meta property="og:url" content="https://www.soarfitness.co.za/">
+    <meta property="og:image" content="https://www.soarfitness.co.za/logo.png">
+    <meta property="og:locale" content="en_ZA">
+
+    <!-- Twitter / X card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="SOAR Fitness | Personal Trainer in Cape Town">
+    <meta name="twitter:description" content="Personalised in-person and online fitness coaching in Brackenfell, Cape Town.">
+    <meta name="twitter:image" content="https://www.soarfitness.co.za/logo.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
@@ -423,7 +442,7 @@
 
         /* Services Section */
         .services {
-            background-image: linear-gradient(rgba(248, 250, 251, 0.35), rgba(248, 250, 251, 0.35)), url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5');
+            background-image: linear-gradient(rgba(74, 155, 153, 0.65), rgba(44, 62, 80, 0.70)), url('https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -518,6 +537,79 @@
             display: block !important;
             text-align: center !important;
             box-sizing: border-box;
+        }
+
+        /* Packages block (within the Services section; no prices — pricing lives on the form) */
+        .packages-block {
+            margin-top: 0;
+        }
+
+        .package-group + .package-group {
+            margin-top: 3rem;
+        }
+
+        .packages-heading {
+            text-align: center;
+            color: var(--white);
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .packages-sub {
+            text-align: center;
+            color: var(--white);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .package-option {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .package-option:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: 0 12px 30px rgba(93, 190, 188, 0.2);
+        }
+
+        .package-option h4 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .package-option p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .packages-cta {
+            text-align: center;
+            margin-top: 2.75rem;
+        }
+
+        .packages-cta p {
+            color: var(--white);
+            margin-bottom: 1.25rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
         }
 
         /* Why Choose Section */
@@ -639,197 +731,110 @@
             color: var(--text-light);
         }
 
-        /* Gallery Section - Carousel */
-        .gallery {
-            background: var(--white);
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .carousel-wrapper {
+        /* Google reviews summary + featured review */
+        .reviews-summary {
             display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            background: var(--white);
-            padding: 2rem;
-        }
-
-        .before-after-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
             align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            background: var(--white);
+            max-width: 460px;
+            margin: 0 auto 2.5rem;
+            padding: 1.25rem 2rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
-        .image-box {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        .g-logo {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
         }
 
-        .image-box img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
+        .reviews-summary .score {
+            font-size: 1.6rem;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--dark-color);
+            vertical-align: middle;
+            margin-right: 0.5rem;
         }
 
-        .image-placeholder {
-            width: 100%;
-            height: 600px;
-            background: linear-gradient(135deg, var(--accent), var(--primary-color));
+        .review-stars {
+            color: #FBBC05;
+            letter-spacing: 2px;
+            vertical-align: middle;
+        }
+
+        .reviews-summary .count {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 0.15rem;
+        }
+
+        .reviews-wrap {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Muted "slot" card shown until a real review fills it */
+        .review-placeholder {
+            background: rgba(255, 255, 255, 0.55);
+            border: 2px dashed var(--primary-color);
+            box-shadow: none;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            color: var(--white);
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        .image-placeholder .icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .image-label {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background: var(--primary-color);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            font-family: 'Montserrat', sans-serif;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
-        .transformation-info {
             text-align: center;
-            margin-top: 2rem;
-            padding-top: 2rem;
-            border-top: 2px solid var(--accent);
         }
 
-        .transformation-info h3 {
-            font-size: 1.5rem;
-            color: var(--dark-color);
+        .review-placeholder .review-stars {
+            color: #CFE6E5;
+            margin-bottom: 0.75rem;
+        }
+
+        .review-placeholder p {
+            color: var(--text-light);
+            font-style: normal;
+            margin: 0;
+        }
+
+        .review-card-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             margin-bottom: 0.5rem;
         }
 
-        .transformation-info p {
-            color: var(--text-light);
-            font-size: 1.05rem;
+        .review-card-head .g-logo {
+            width: 24px;
+            height: 24px;
         }
 
-        .transformation-stats {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 1rem;
-        }
-
-        .stat-item {
+        .reviews-cta {
             text-align: center;
+            margin-top: 3rem;
         }
 
-        .stat-item .number {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .stat-item .label {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin-top: 0.25rem;
-        }
-
-        /* Carousel Navigation */
-        .carousel-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: var(--white);
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
+        .btn-google {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 10;
-        }
-
-        .carousel-nav:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .carousel-nav.prev {
-            left: 20px;
-        }
-
-        .carousel-nav.next {
-            right: 20px;
-        }
-
-        .carousel-nav:disabled {
-            opacity: 0.3;
-            cursor: not-allowed;
-        }
-
-        .carousel-nav:disabled:hover {
+            gap: 0.6rem;
             background: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-50%);
+            color: var(--dark-color);
         }
 
-        /* Carousel Dots */
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-top: 2rem;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
+        .btn-google:hover {
             background: var(--accent);
-            border: 2px solid var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
         }
 
-        .dot.active {
-            background: var(--primary-color);
-            transform: scale(1.3);
-        }
-
-        .dot:hover {
-            background: var(--secondary-color);
+        .btn-google .g-logo {
+            width: 20px;
+            height: 20px;
         }
 
         /* Contact Section */
@@ -906,7 +911,26 @@
             color: var(--primary-color);
             font-size: 1.2rem;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            flex-shrink: 0;
         }
+
+        .contact-item:hover .contact-icon {
+            background: var(--primary-color);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Per-icon accent colours (sit inside the white box at rest, fill on hover) */
+        .contact-icon-email { color: #2D9CDB; }
+        .contact-item:hover .contact-icon-email { background: #2D9CDB; }
+
+        .contact-icon-phone { color: #25D366; }
+        .contact-item:hover .contact-icon-phone { background: #25D366; }
+
+        .contact-icon-location { color: #EA4335; }
+        .contact-item:hover .contact-icon-location { background: #EA4335; }
 
         .social-links {
             display: flex;
@@ -930,10 +954,26 @@
         }
 
         .social-link:hover {
-            background: var(--primary-color);
-            color: var(--white);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Brand colours for social icons (sit inside the white circle at rest) */
+        .social-facebook {
+            color: #1877F2;
+        }
+
+        .social-facebook:hover {
+            background: #1877F2;
+            color: var(--white);
+        }
+
+        .social-instagram:hover {
+            background: linear-gradient(45deg, #FEDA75 0%, #FA7E1E 25%, #D62976 50%, #962FBF 75%, #4F5BD5 100%);
+        }
+
+        .social-instagram:hover svg {
+            stroke: var(--white);
         }
 
         .contact-cta-box {
@@ -1208,45 +1248,6 @@
                 width: 100%;
             }
 
-            /* Carousel mobile styles */
-            .before-after-container {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .image-placeholder,
-            .image-box img {
-                height: 300px;
-            }
-
-            .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            .carousel-nav.prev {
-                left: 10px;
-            }
-
-            .carousel-nav.next {
-                right: 10px;
-            }
-
-            .transformation-stats {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .carousel-slide {
-                padding: 1rem;
-            }
-
-            .image-label {
-                font-size: 0.85rem;
-                padding: 0.4rem 1rem;
-            }
-
             .contact-cta-box {
                 padding: 2rem 1.5rem;
             }
@@ -1262,6 +1263,38 @@
             }
         }
     </style>
+
+    <!-- Structured data: tells Google & AI answer engines what/where this business is -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HealthClub",
+      "name": "SOAR Fitness",
+      "description": "Personalised in-person and online personal training in Cape Town. Custom workouts, nutrition guidance and accountability.",
+      "url": "https://www.soarfitness.co.za/",
+      "image": "https://www.soarfitness.co.za/logo.png",
+      "logo": "https://www.soarfitness.co.za/logo.png",
+      "telephone": "+27725585013",
+      "email": "info@soarfitness.co.za",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Corner of Jakaranda St & Bottelary Rd",
+        "addressLocality": "Brackenfell South",
+        "addressRegion": "Western Cape",
+        "addressCountry": "ZA"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.9015697,
+        "longitude": 18.7067734
+      },
+      "hasMap": "https://maps.app.goo.gl/X7XP3yx7JZWREqDv5",
+      "sameAs": [
+        "https://www.instagram.com/soar_fitness.cpt/",
+        "https://www.facebook.com/dehan.visagie"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -1274,7 +1307,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="form.html" class="nav-cta">Get Started</a></li>
+                <li><a href="book.html" class="nav-cta">Book &amp; Join</a></li>
             </ul>
             <button class="mobile-menu-btn">☰</button>
         </div>
@@ -1297,7 +1330,7 @@
             <li><a href="#contact" class="mobile-link">Contact</a></li>
         </ul>
         <div class="mobile-menu-cta">
-            <a href="form.html">Get Started</a>
+            <a href="book.html">Book &amp; Join</a>
         </div>
     </div>
     <!-- Hero Section -->
@@ -1307,7 +1340,7 @@
             <p class="hero-tagline">Achieving New Heights</p>
             <p>Personalized fitness training designed to help you reach your full potential. Whether you're starting your fitness journey or looking to break through plateaus, SOAR Fitness is here to guide you every step of the way.</p>
             <div class="hero-buttons">
-                <a href="form.html" class="btn btn-primary">Start Your Journey</a>
+                <a href="book.html" class="btn btn-primary">Start Your Journey</a>
                 <a href="#services" class="btn btn-secondary">View Programs</a>
             </div>
         </div>
@@ -1324,7 +1357,7 @@
                     <p>We understand that every fitness journey is unique. That's why we take the time to understand your goals, challenges, and lifestyle to create a customized plan that works for you.</p>
                 </div>
                 <div class="about-image">
-                    <img src="soar.png" alt="SOAR Fitness Training" style="width: 100%; height: auto; border-radius: 20px; box-shadow: 0 10px 40px rgba(93, 190, 188, 0.3);">
+                    <img src="soar.png" alt="SOAR Fitness Training">
                 </div>
             </div>
         </div>
@@ -1335,101 +1368,53 @@
         <div class="container">
             <div class="section-header">
                 <h2>Training Programs</h2>
-                <p>Choose the perfect program to match your fitness goals and lifestyle</p>
+                <p>Flexible in-person memberships and personal training to match your goals and schedule</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <!-- <div class="service-icon">🏋️</div> -->
-                    <h3>In-Person Training</h3>
-                    <p>One-on-one training designed for your goals, fitness level and schedule.</p>
-                    <!-- <div class="service-price">From R500</div> -->
-                    <ul class="service-features">
-                        <li>45-60 Min 1:1 sessions</li>
-                        <li>Custom workouts</li>
-                        <li>Access to our coaching app</li>
-                        <li>Goal setting / Monthly assessments</li>
-                        <li>Accountability & WhatsApp support</li>
-                        <li>Nutrition & Meal plan guidance</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
+
+            <!-- Packages block: structure only, no prices (pricing & specials live on the JotForm) -->
+            <div class="packages-block">
+                <div class="package-group">
+                    <h3 class="packages-heading">Membership Options</h3>
+                    <p class="packages-sub">In-person training memberships &mdash; pick the weekly frequency that suits your goals and schedule.</p>
+                    <div class="packages-grid">
+                        <div class="package-option">
+                            <h4>2&times; / Week</h4>
+                            <p>Two coached sessions every week</p>
+                        </div>
+                        <div class="package-option">
+                            <h4>3&times; / Week</h4>
+                            <p>Three coached sessions every week</p>
+                        </div>
+                        <div class="package-option">
+                            <h4>5&times; / Week</h4>
+                            <p>Five coached sessions every week</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <!-- <div class="service-icon">💪</div> -->
-                    <h3>Online Training</h3>
-                    <p>Train anywhere, anytime with remote coaching support.</p>
-                    <!-- <div class="service-price">From R450</div> -->
-                    <ul class="service-features">
-                        <li>5 Custom workouts per week</li>
-                        <li>Monthly video call check-ins</li>
-                        <li>Access to our coaching app</li>
-                        <li>Goal setting / Monthly assessments</li>
-                        <li>Accountability & WhatsApp support</li>
-                        <li>Nutrition & Meal plan guidance</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
+                <div class="package-group">
+                    <h3 class="packages-heading">Personal Training</h3>
+                    <p class="packages-sub">Per-session training &mdash; on your own, or shared with a partner or two.</p>
+                    <div class="packages-grid">
+                        <div class="package-option">
+                            <h4>Solo</h4>
+                            <p>One-on-one with your coach</p>
+                        </div>
+                        <div class="package-option">
+                            <h4>Duo</h4>
+                            <p>Train with a partner</p>
+                        </div>
+                        <div class="package-option">
+                            <h4>Trio</h4>
+                            <p>Small group of three</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <!-- <div class="service-icon">🎯</div> -->
-                    <h3>SOAR in SIX</h3>
-                    <p>6 Week Online Challenge - 30 Easy to follow home workouts.</p>
-                    <!-- <div class="service-price">From R450</div> -->
-                    <ul class="service-features">
-                        <li>Goal Setting /  Weekly check-ins</li>
-                        <li>No equipment required</li>
-                        <li>Access to coaching app</li>
-                        <li>Accountability & WhatsApp support</li>
-                        <li>Nutrition & Meal plan guidance</li>
-                        <li>Lifestyle integration</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
+                <div class="packages-cta">
+                    <p>View full pricing and sign up online in just a few clicks.</p>
+                    <a href="book.html#packages" class="btn btn-primary">View Pricing &amp; Get Started</a>
                 </div>
-
-                <!-- <div class="service-card">
-                    <div class="service-icon">🔥</div>
-                    <h3>HIIT & Conditioning</h3>
-                    <p>High-intensity interval training to boost endurance, burn fat, and improve overall fitness.</p>
-                    <div class="service-price">From R400</div>
-                    <ul class="service-features">
-                        <li>Intense calorie-burning workouts</li>
-                        <li>Cardiovascular improvement</li>
-                        <li>Athletic conditioning</li>
-                        <li>Time-efficient sessions</li>
-                        <li>Scalable intensity levels</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🍎</div>
-                    <h3>Nutrition Coaching</h3>
-                    <p>Personalized nutrition plans to fuel your workouts and support your body transformation goals.</p>
-                    <div class="service-price">From R350</div>
-                    <ul class="service-features">
-                        <li>Custom meal plans</li>
-                        <li>Macro & calorie guidance</li>
-                        <li>Supplement recommendations</li>
-                        <li>Lifestyle integration</li>
-                        <li>Regular plan adjustments</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">📱</div>
-                    <h3>Online Training</h3>
-                    <p>Train anywhere, anytime with custom online programs and remote coaching support.</p>
-                    <div class="service-price">From R300</div>
-                    <ul class="service-features">
-                        <li>Flexible training schedules</li>
-                        <li>Video exercise libraries</li>
-                        <li>Weekly check-ins</li>
-                        <li>Progress monitoring</li>
-                        <li>Anywhere, anytime access</li>
-                    </ul>
-                    <a href="form.html" class="btn btn-primary">Get Started</a>
-                </div> -->
             </div>
         </div>
     </section>
@@ -1471,225 +1456,77 @@
         <div class="container">
             <div class="section-header">
                 <h2>Client Success Stories</h2>
-                <p>Real people, real results. See what our clients have achieved with SOAR Fitness</p>
+                <p>Don't just take our word for it — here's what our clients say on Google</p>
             </div>
+
+            <div class="reviews-summary">
+                <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                </svg>
+                <div>
+                    <span class="score">5.0</span><span class="review-stars">★★★★★</span>
+                    <div class="count">Based on 3 Google reviews</div>
+                </div>
+            </div>
+
             <div class="testimonials-grid">
+                <!-- Real Google review -->
                 <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">Working with SOAR Fitness has completely transformed my life. I've lost 15kg and gained so much confidence. The personalized approach and constant support made all the difference!</p>
+                    <div class="review-card-head">
+                        <span class="review-stars">★★★★★</span>
+                        <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                        </svg>
+                    </div>
+                    <p class="testimonial-text">Dehan is extremely passionate, I feel so comfortable to push and train to be the fittest best version of myself. My husband and I absolutely love training at his gym. Soar fitness is more a family than anything, it's a space where we push and soar to be the best version of ourselves!</p>
                     <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
+                        <div class="author-avatar">V</div>
                         <div class="author-info">
-                            <h4>Sarah M.</h4>
-                            <p>Weight Loss Journey</p>
+                            <h4>Vine &amp; Co Interiors</h4>
+                            <p>via Google</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">I've tried many trainers over the years, but SOAR Fitness is different. The attention to detail and genuine care for my progress has helped me achieve goals I never thought possible.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">JD</div>
-                        <div class="author-info">
-                            <h4>James D.</h4>
-                            <p>Strength Training</p>
-                        </div>
-                    </div>
+                <!--
+                    TO ADD A REAL REVIEW: copy the "Real Google review" card above into
+                    a placeholder's place, then change the avatar initial, the
+                    <p class="testimonial-text">, and the <h4> name. Delete the
+                    placeholder card you replaced, and update the count in
+                    .reviews-summary above (e.g. "Based on 4 Google reviews").
+                    Do NOT invent reviews — only add genuine ones.
+                -->
+
+                <!-- Placeholder slot — replace with a real review -->
+                <div class="testimonial-card review-placeholder">
+                    <span class="review-stars">★★★★★</span>
+                    <p>More client reviews coming soon — real Google reviews will appear here.</p>
                 </div>
 
-                <div class="testimonial-card">
-                    <div class="testimonial-quote">"</div>
-                    <p class="testimonial-text">The online training program was perfect for my busy schedule. I've gotten stronger, fitter, and more energized. Highly recommend SOAR Fitness to anyone serious about their health!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">LT</div>
-                        <div class="author-info">
-                            <h4>Lisa T.</h4>
-                            <p>Online Training</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <div class="section-header">
-                <h2>Transformation Gallery</h2>
-                <p>Real clients, real results. See the incredible transformations achieved through dedication and our personalized training programs</p>
-            </div>
-            
-            <div class="carousel-container">
-                <button class="carousel-nav prev" onclick="moveSlide(-1)">‹</button>
-                <button class="carousel-nav next" onclick="moveSlide(1)">›</button>
-                
-                <div class="carousel-wrapper" id="carouselWrapper">
-                    <!-- Slide 1 -->
-                    <div class="carousel-slide">
-                        <div class="before-after-container">
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <img src="before1-1.png" alt="Sarah Before">
-                                    <!--<div>BEFORE Photo</div> -->
-                                </div>
-                                <div class="image-label">BEFORE</div>
-                            </div>
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <img src="before1-2.png" alt="Sarah After">
-                                    <!-- <div>AFTER Photo</div> -->
-                                </div>
-                                <div class="image-label">AFTER</div>
-                            </div>
-                        </div>
-                        <div class="transformation-info">
-                            <h3>Alrich's Amazing Transformation</h3>
-                            <p>2 Months of dedication and personalized training</p>
-                            <div class="transformation-stats">
-                                <div class="stat-item">
-                                    <div class="number">-5kg</div>
-                                    <div class="label">Weight Loss</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="number">2</div>
-                                    <div class="label">Months</div>
-                                </div>
-                                <div class="stat-item">
-                                    <!-- <div class="number">+200%</div>
-                                    <div class="label">Confidence</div> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2 -->
-                    <div class="carousel-slide">
-                        <div class="before-after-container">
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">📷</div>
-                                    <div>BEFORE Photo</div>
-                                </div>
-                                <div class="image-label">BEFORE</div>
-                            </div>
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">✨</div>
-                                    <div>AFTER Photo</div>
-                                </div>
-                                <div class="image-label">AFTER</div>
-                            </div>
-                        </div>
-                        <div class="transformation-info">
-                            <h3>James' Strength Journey</h3>
-                            <p>Transformed through consistent strength training</p>
-                            <div class="transformation-stats">
-                                <div class="stat-item">
-                                    <div class="number">+12kg</div>
-                                    <div class="label">Muscle Gain</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="number">4</div>
-                                    <div class="label">Months</div>
-                                </div>
-                                <div class="stat-item">
-                                    <!-- <div class="number">+150%</div>
-                                    <div class="label">Strength</div> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3 -->
-                    <div class="carousel-slide">
-                        <div class="before-after-container">
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">📷</div>
-                                    <div>BEFORE Photo</div>
-                                </div>
-                                <div class="image-label">BEFORE</div>
-                            </div>
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">✨</div>
-                                    <div>AFTER Photo</div>
-                                </div>
-                                <div class="image-label">AFTER</div>
-                            </div>
-                        </div>
-                        <div class="transformation-info">
-                            <h3>Lisa's Fitness Revolution</h3>
-                            <p>Online training success from home workouts</p>
-                            <div class="transformation-stats">
-                                <div class="stat-item">
-                                    <div class="number">-10kg</div>
-                                    <div class="label">Weight Loss</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="number">3</div>
-                                    <div class="label">Months</div>
-                                </div>
-                                <div class="stat-item">
-                                    <!-- <div class="number">100%</div>
-                                    <div class="label">Motivated</div> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 -->
-                    <div class="carousel-slide">
-                        <div class="before-after-container">
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">📷</div>
-                                    <div>BEFORE Photo</div>
-                                </div>
-                                <div class="image-label">BEFORE</div>
-                            </div>
-                            <div class="image-box">
-                                <div class="image-placeholder">
-                                    <div class="icon">✨</div>
-                                    <div>AFTER Photo</div>
-                                </div>
-                                <div class="image-label">AFTER</div>
-                            </div>
-                        </div>
-                        <div class="transformation-info">
-                            <h3>Michael's Complete Transformation</h3>
-                            <p>Life-changing results through nutrition and training</p>
-                            <div class="transformation-stats">
-                                <div class="stat-item">
-                                    <div class="number">-20kg</div>
-                                    <div class="label">Weight Loss</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="number">8</div>
-                                    <div class="label">Months</div>
-                                </div>
-                                <div class="stat-item">
-                                    <!-- <div class="number">+300%</div>
-                                    <div class="label">Energy</div> -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Placeholder slot — replace with a real review -->
+                <div class="testimonial-card review-placeholder">
+                    <span class="review-stars">★★★★★</span>
+                    <p>More client reviews coming soon — real Google reviews will appear here.</p>
                 </div>
             </div>
 
-            <div class="carousel-dots" id="carouselDots">
-                <span class="dot active" onclick="goToSlide(0)"></span>
-                <span class="dot" onclick="goToSlide(1)"></span>
-                <span class="dot" onclick="goToSlide(2)"></span>
-                <span class="dot" onclick="goToSlide(3)"></span>
+            <div class="reviews-cta">
+                <a href="https://www.google.com/search?q=Soar-Fitness&amp;kgmid=/g/11npf9zr25&amp;hl=en-ZA#lrd=0x1dcc51d50b443133:0x7b3798cba1fa7798,1,,,," target="_blank" rel="noopener" class="btn btn-google">
+                    <svg class="g-logo" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+                        <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+                        <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
+                        <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/>
+                    </svg>
+                    Read our reviews on Google
+                </a>
             </div>
-
-            <!-- <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://www.instagram.com/soar_fitness.cpt/" target="_blank" class="btn btn-primary">Follow Us on Instagram</a>
-            </div> -->
         </div>
     </section>
 
@@ -1706,30 +1543,63 @@
                     <p>Have questions about our programs or want to schedule a consultation? We're here to help you take the first step towards your fitness goals.</p>
                     <div class="contact-details">
                         <div class="contact-item">
-                            <div class="contact-icon">📧</div>
+                            <div class="contact-icon contact-icon-email">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                                </svg>
+                            </div>
                             <div>
                                 <strong>Email</strong><br>
-                                <span style="color: var(--text-light);">info@soarfitness.co.za</span>
+                                <a href="mailto:info@soarfitness.co.za" style="color: var(--white); text-decoration: none;">info@soarfitness.co.za</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📱</div>
+                            <div class="contact-icon contact-icon-phone">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
                             <div>
                                 <strong>Phone</strong><br>
-                                <span style="color: var(--text-light);">+27 XX XXX XXXX</span>
+                                <a href="tel:+27725585013" style="color: var(--white); text-decoration: none;">+27 72 558 5013</a>
                             </div>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon">📍</div>
+                            <div class="contact-icon contact-icon-location">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                            </div>
                             <div>
                                 <strong>Location</strong><br>
-                                <span style="color: var(--text-light);">Cape Town, South Africa</span>
+                                <a href="https://maps.app.goo.gl/X7XP3yx7JZWREqDv5" target="_blank" rel="noopener" style="color: var(--white); text-decoration: underline;">Corner of Jakaranda St &amp; Bottelary Rd, Brackenfell South</a>
                             </div>
                         </div>
                     </div>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/soar_fitness.cpt/" target="_blank" class="social-link" title="Instagram">📷</a>
-                        <a href="https://www.facebook.com/dehan.visagie" target="_blank" class="social-link" title="Facebook">f</a>
+                        <a href="https://www.instagram.com/soar_fitness.cpt/" target="_blank" rel="noopener" class="social-link social-instagram" title="Instagram" aria-label="SOAR Fitness on Instagram">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#igGrad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#FEDA75"/>
+                                        <stop offset="25%" stop-color="#FA7E1E"/>
+                                        <stop offset="50%" stop-color="#D62976"/>
+                                        <stop offset="75%" stop-color="#962FBF"/>
+                                        <stop offset="100%" stop-color="#4F5BD5"/>
+                                    </linearGradient>
+                                </defs>
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.facebook.com/dehan.visagie" target="_blank" rel="noopener" class="social-link social-facebook" title="Facebook" aria-label="SOAR Fitness on Facebook">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </a>
                     </div>
                 </div>
                 <div class="contact-cta-box">
@@ -1780,32 +1650,53 @@
             <div class="footer-section">
                 <h3>Services</h3>
                 <ul class="footer-links">
+                    <li><a href="#services">In-Person Training</a></li>
                     <li><a href="#services">Personal Training</a></li>
-                    <li><a href="#services">Strength Training</a></li>
-                    <li><a href="#services">Weight Loss</a></li>
-                    <li><a href="#services">Online Training</a></li>
-                    <li><a href="#services">Nutrition Coaching</a></li>
+                    <li><a href="#services">Weekly Memberships</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact Info</h3>
                 <ul class="footer-links">
-                    <li>Cape Town, South Africa</li>
-                    <li>info@soarfitness.co.za</li>
-                    <li>+27 XX XXX XXXX</li>
+                    <li><a href="https://maps.app.goo.gl/X7XP3yx7JZWREqDv5" target="_blank" rel="noopener">Corner of Jakaranda St &amp; Bottelary Rd, Brackenfell South</a></li>
+                    <li><a href="mailto:info@soarfitness.co.za">info@soarfitness.co.za</a></li>
+                    <li><a href="tel:+27725585013">+27 72 558 5013</a></li>
                 </ul>
                 <div class="social-links" style="margin-top: 1rem;">
-                    <a href="https://www.instagram.com/soar_fitness.cpt/" target="_blank" class="social-link">📷</a>
-                    <a href="https://www.facebook.com/dehan.visagie" target="_blank" class="social-link">f</a>
+                    <a href="https://www.instagram.com/soar_fitness.cpt/" target="_blank" rel="noopener" class="social-link social-instagram" aria-label="SOAR Fitness on Instagram">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#igGradFooter)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <defs>
+                                <linearGradient id="igGradFooter" x1="0%" y1="100%" x2="100%" y2="0%">
+                                    <stop offset="0%" stop-color="#FEDA75"/>
+                                    <stop offset="25%" stop-color="#FA7E1E"/>
+                                    <stop offset="50%" stop-color="#D62976"/>
+                                    <stop offset="75%" stop-color="#962FBF"/>
+                                    <stop offset="100%" stop-color="#4F5BD5"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+                        </svg>
+                    </a>
+                    <a href="https://www.facebook.com/dehan.visagie" target="_blank" rel="noopener" class="social-link social-facebook" aria-label="SOAR Fitness on Facebook">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                        </svg>
+                    </a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 SOAR Fitness. All rights reserved. | Achieving New Heights</p>
+            <p>&copy; <span id="year">2025</span> SOAR Fitness. All rights reserved. | Achieving New Heights</p>
         </div>
     </footer>
 
     <script>
+        // Keep the footer copyright year current automatically
+        var yearEl = document.getElementById('year');
+        if (yearEl) { yearEl.textContent = new Date().getFullYear(); }
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1865,84 +1756,6 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
                 closeMobileMenu();
-            }
-        });
-        // ====================================
-        // CAROUSEL FUNCTIONALITY
-        // ====================================
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-        const wrapper = document.getElementById('carouselWrapper');
-        const dots = document.querySelectorAll('.dot');
-
-        function updateCarousel() {
-            wrapper.style.transform = `translateX(-${currentSlide * 100}%)`;
-            
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentSlide);
-            });
-        }
-
-        function moveSlide(direction) {
-            currentSlide += direction;
-            
-            // Loop around
-            if (currentSlide < 0) {
-                currentSlide = totalSlides - 1;
-            } else if (currentSlide >= totalSlides) {
-                currentSlide = 0;
-            }
-            
-            updateCarousel();
-        }
-
-        function goToSlide(slideIndex) {
-            currentSlide = slideIndex;
-            updateCarousel();
-        }
-
-        // Auto-play carousel (optional - uncomment to enable)
-        // setInterval(() => {
-        //     moveSlide(1);
-        // }, 5000); // Change slide every 5 seconds
-
-        // Touch/Swipe support for mobile
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        const carouselContainer = document.querySelector('.carousel-container');
-
-        carouselContainer.addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        });
-
-        carouselContainer.addEventListener('touchend', e => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        });
-
-        function handleSwipe() {
-            const swipeThreshold = 50; // Minimum distance for swipe
-            
-            if (touchStartX - touchEndX > swipeThreshold) {
-                // Swiped left - next slide
-                moveSlide(1);
-            }
-            
-            if (touchEndX - touchStartX > swipeThreshold) {
-                // Swiped right - previous slide
-                moveSlide(-1);
-            }
-        }
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft') {
-                moveSlide(-1);
-            } else if (e.key === 'ArrowRight') {
-                moveSlide(1);
             }
         });
     </script>
